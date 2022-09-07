@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 
-from BOT.TEST.config import TOKEN, TOKEN_OWM
+from BOT.TEST.config import TOKEN, TOKEN_OWM # Импорт токенов Бота и Погоды
 
 # Рандом
 import random
@@ -19,7 +19,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token=TOKEN, parse_mode='HTML')
+bot = Bot(token=TOKEN, parse_mode='HTML') # TOKEN можно получить у бота BotFather
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
@@ -27,7 +27,7 @@ dp = Dispatcher(bot, storage=storage)
 config_dict = get_default_config()
 config_dict['language'] = 'ru'
 
-owm = OWM(TOKEN_OWM, config_dict)
+owm = OWM(TOKEN_OWM, config_dict) # Получение Токена Погоды
 mgr = owm.weather_manager()
 
 @dp.message_handler(commands=['start'])
